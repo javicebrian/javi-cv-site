@@ -1,0 +1,16 @@
+node_modules
+dist
+*.log
+*.local
+.DS_Store
+.idea
+.vscode/*
+!.vscode/extensions.json
+
+# Source material (CV PDF, photos, inspiration). Kept out of git on purpose:
+# the CV carries private data (phone, address) and the remote may end up public.
+# See AGENTS.md → "docs/".
+docs/**
+!docs/README.md
+!docs/*/
+!docs/*/.gitkeep
