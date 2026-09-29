@@ -7,6 +7,18 @@
     <meta name="theme-color" content="#0b0b0f" />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <title>cebrian.io</title>
+    <script>
+      // Set the theme before first paint so there is no flash of the wrong one.
+      // Keep in step with src/theme.ts (same storage key and values).
+      ;(function () {
+        var t
+        try {
+          t = localStorage.getItem('theme')
+        } catch (e) {}
+        if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
+        document.documentElement.dataset.theme = t
+      })()
+    </script>
   </head>
   <body>
     <div id="root"></div>

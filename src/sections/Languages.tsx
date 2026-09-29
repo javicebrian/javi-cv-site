@@ -7,13 +7,13 @@ import { cv } from '../content/cv'
 function Ring({ value }: { value: number }) {
   return (
     <svg viewBox="0 0 100 100" className="absolute inset-0 -rotate-90" aria-hidden>
-      <circle cx="50" cy="50" r="44" fill="none" stroke="var(--color-line)" strokeWidth="6" />
+      <circle cx="50" cy="50" r="44" fill="none" className="stroke-line" strokeWidth="6" />
       <motion.circle
         cx="50"
         cy="50"
         r="44"
         fill="none"
-        stroke="var(--color-accent)"
+        className="stroke-accent"
         strokeWidth="6"
         strokeLinecap="round"
         initial={{ pathLength: 0 }}

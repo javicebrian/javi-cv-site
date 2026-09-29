@@ -4,6 +4,12 @@
  * Design tokens. Every colour/font the site uses is declared here and consumed
  * as Tailwind utilities (bg-bg, text-fg, text-muted, border-line, text-accent…).
  * Placeholder palette — to be revisited once docs/ has been reviewed.
+ *
+ * @theme holds the dark palette (the default); [data-theme='light'] below
+ * redefines the same variables. Utilities read the variables at runtime, so
+ * switching the attribute on <html> re-themes everything — components never
+ * branch on the theme. The attribute is set before first paint by the inline
+ * script in index.html and afterwards by src/theme.ts.
  */
 @theme {
   --color-bg: #0b0b0f;
@@ -15,6 +21,28 @@
 
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
   --font-mono: ui-monospace, 'SFMono-Regular', Menlo, monospace;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --color-bg: #fafaf9;
+  --color-surface: #f0efec;
+  --color-fg: #18181b;
+  --color-muted: #5d5d66;
+  --color-line: #dedcd7;
+  --color-accent: #3b5bdb;
+}
+
+/* Theme switch: the new theme is revealed as a growing circle (see theme.ts),
+   so the default cross-fade is turned off. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
 }
 
 @layer base {

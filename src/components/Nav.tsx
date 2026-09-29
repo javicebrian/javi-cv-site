@@ -1,6 +1,8 @@
 import { motion } from 'motion/react'
 import { useEffect, useState } from 'react'
+import { cv } from '../content/cv'
 import { sections } from '../sections'
+import ThemeToggle from './ThemeToggle'
 
 const navItems = sections.filter((s) => s.nav)
 
@@ -24,26 +26,29 @@ export default function Nav() {
   return (
     <header className="sticky top-0 z-40 border-b border-line/60 bg-bg/70 backdrop-blur">
       <nav className="mx-auto flex max-w-4xl items-center justify-between px-6 py-4">
-        <a href="#top" className="font-mono text-sm font-semibold">
-          cebrian.io
+        <a href="#top" className="font-semibold tracking-tight">
+          {cv.name}
         </a>
-        <ul className="hidden gap-1 text-sm md:flex">
-          {navItems.map(({ id, label }) => (
-            <li key={id} className="relative">
-              <a
-                href={`#${id}`}
-                className={`relative z-10 block rounded-full px-3 py-1.5 transition-colors ${
-                  active === id ? 'text-fg' : 'text-muted hover:text-fg'
-                }`}
-              >
-                {label}
-              </a>
-              {active === id && (
-                <motion.span layoutId="nav-pill" className="absolute inset-0 rounded-full bg-surface" />
-              )}
-            </li>
-          ))}
-        </ul>
+        <div className="flex items-center gap-2">
+          <ul className="hidden gap-1 text-sm md:flex">
+            {navItems.map(({ id, label }) => (
+              <li key={id} className="relative">
+                <a
+                  href={`#${id}`}
+                  className={`relative z-10 block rounded-full px-3 py-1.5 transition-colors ${
+                    active === id ? 'text-fg' : 'text-muted hover:text-fg'
+                  }`}
+                >
+                  {label}
+                </a>
+                {active === id && (
+                  <motion.span layoutId="nav-pill" className="absolute inset-0 rounded-full bg-surface" />
+                )}
+              </li>
+            ))}
+          </ul>
+          <ThemeToggle />
+        </div>
       </nav>
     </header>
   )

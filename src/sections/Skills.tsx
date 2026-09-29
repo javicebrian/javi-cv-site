@@ -10,11 +10,13 @@ function Dots({ level, label }: { level: number; label: string }) {
   return (
     <div className="flex gap-1.5" role="meter" aria-label={label} aria-valuemin={0} aria-valuemax={DOTS} aria-valuenow={level}>
       {Array.from({ length: DOTS }, (_, i) => (
+        // Colour comes from classes, not the animation: Motion would bake the
+        // resolved colour into an inline style and it would miss theme switches.
         <motion.span
           key={i}
-          className="size-2.5 rounded-full"
-          initial={{ backgroundColor: 'var(--color-line)', scale: 0.6 }}
-          whileInView={i < level ? { backgroundColor: 'var(--color-accent)', scale: 1 } : { scale: 1 }}
+          className={`size-2.5 rounded-full ${i < level ? 'bg-accent' : 'bg-line'}`}
+          initial={{ opacity: 0.25, scale: 0.6 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.15 + i * 0.05, duration: 0.3 }}
         />
