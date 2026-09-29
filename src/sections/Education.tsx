@@ -1,10 +1,12 @@
 import Reveal from '../components/Reveal'
-import Section, { type SectionProps } from '../components/Section'
+import { SectionTitle } from '../components/Section'
 import { cv } from '../content/cv'
 
-export default function Education({ id }: SectionProps) {
+// Rendered inside EducationLanguages, not as a section of its own.
+export default function Education() {
   return (
-    <Section id={id} title="Education">
+    <div>
+      <SectionTitle>Education</SectionTitle>
       <ul className="space-y-6">
         {cv.education.map((e) => (
           <li key={e.school + e.degree}>
@@ -15,14 +17,12 @@ export default function Education({ id }: SectionProps) {
                 </p>
               )}
               <h3 className="mt-1 text-lg font-semibold">{e.degree}</h3>
-              <p className="text-muted">
-                {e.school}
-                {e.note && ` · ${e.note}`}
-              </p>
+              <p className="text-muted">{e.school}</p>
+              {e.note && <p className="mt-1 text-sm text-muted">{e.note}</p>}
             </Reveal>
           </li>
         ))}
       </ul>
-    </Section>
+    </div>
   )
 }

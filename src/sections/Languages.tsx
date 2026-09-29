@@ -25,10 +25,10 @@ function Ring({ value }: { value: number }) {
   )
 }
 
-// Rendered inside LanguagesAchievements, not as a section of its own.
+// Rendered inside EducationLanguages, not as a section of its own.
 export default function Languages() {
   return (
-    <div>
+    <div id="languages">
       <SectionTitle>Languages</SectionTitle>
       <ul className="flex flex-wrap gap-6 sm:gap-8">
         {cv.languages.map((l) => (
