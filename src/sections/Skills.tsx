@@ -42,7 +42,7 @@ export default function Skills({ id }: SectionProps) {
         </div>
         <div>
           <h3 className="mb-6 font-mono text-xs text-muted">02 Knowledge</h3>
-          <ul className="flex flex-wrap gap-2">
+          <ul className="flex flex-col items-start gap-2">
             {cv.knowledge.map((k, i) => (
               <li key={k}>
                 <Reveal delay={i * 0.05} className="rounded-md bg-surface px-3 py-1.5 text-sm text-muted">

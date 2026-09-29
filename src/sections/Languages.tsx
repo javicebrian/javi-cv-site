@@ -1,6 +1,6 @@
 import { motion } from 'motion/react'
 import Reveal from '../components/Reveal'
-import Section, { type SectionProps } from '../components/Section'
+import { SectionTitle } from '../components/Section'
 import { cv } from '../content/cv'
 
 // The PDF's proficiency rings, drawn on scroll.
@@ -25,13 +25,15 @@ function Ring({ value }: { value: number }) {
   )
 }
 
-export default function Languages({ id }: SectionProps) {
+// Rendered inside LanguagesAchievements, not as a section of its own.
+export default function Languages() {
   return (
-    <Section id={id} title="Languages">
-      <ul className="flex flex-wrap gap-10">
+    <div>
+      <SectionTitle>Languages</SectionTitle>
+      <ul className="flex flex-wrap gap-6 sm:gap-8">
         {cv.languages.map((l) => (
           <li key={l.name}>
-            <Reveal className="relative grid size-40 place-items-center text-center">
+            <Reveal className="relative grid size-36 place-items-center sm:size-40 text-center">
               <Ring value={l.proficiency} />
               <div>
                 <p className="font-semibold tracking-wide uppercase">{l.name}</p>
@@ -41,6 +43,6 @@ export default function Languages({ id }: SectionProps) {
           </li>
         ))}
       </ul>
-    </Section>
+    </div>
   )
 }

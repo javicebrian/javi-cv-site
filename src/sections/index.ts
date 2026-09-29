@@ -1,13 +1,12 @@
 import type { ComponentType } from 'react'
 import type { SectionProps } from '../components/Section'
 import About from './About'
-import Achievements from './Achievements'
 import Contact from './Contact'
 import Education from './Education'
 import Experience from './Experience'
 import Hero from './Hero'
 import Interests from './Interests'
-import Languages from './Languages'
+import LanguagesAchievements from './LanguagesAchievements'
 import Skills from './Skills'
 
 // Page order and nav entries in one place. Blocks follow docs/JaviCebrianCV.pdf;
@@ -20,8 +19,7 @@ export const sections: { id: string; label: string; nav: boolean; Component: Com
   { id: 'experience', label: 'Experience', nav: true, Component: Experience },
   { id: 'skills', label: 'Skills', nav: true, Component: Skills },
   { id: 'education', label: 'Education', nav: false, Component: Education },
-  { id: 'languages', label: 'Languages', nav: false, Component: Languages },
-  { id: 'achievements', label: 'Achievements', nav: false, Component: Achievements },
+  { id: 'languages', label: 'Languages & achievements', nav: false, Component: LanguagesAchievements },
   { id: 'interests', label: 'Interests', nav: true, Component: Interests },
   { id: 'contact', label: 'Contact', nav: true, Component: Contact },
 ]
