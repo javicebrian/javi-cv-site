@@ -1,3 +1,4 @@
+import DownloadCv from './components/DownloadCv'
 import Nav from './components/Nav'
 import ScrollProgress from './components/ScrollProgress'
 import { sections } from './sections'
@@ -12,6 +13,7 @@ export default function App() {
           <Component key={id} id={id} />
         ))}
       </main>
+      <DownloadCv />
     </>
   )
 }

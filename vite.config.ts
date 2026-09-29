@@ -9,4 +9,7 @@ export default defineConfig({
   base: './',
   server: { host: true, port: 5176, strictPort: true },
   preview: { host: true, port: 5176, strictPort: true },
+  // The only chunk over the default 500 kB is react-pdf (~1.2 MB), which is
+  // lazy-loaded when a visitor downloads the CV; the main bundle stays small.
+  build: { chunkSizeWarningLimit: 1300 },
 })

@@ -8,6 +8,11 @@ export const cv: CV = {
   tagline: 'just another geek',
   headline: 'Product Engineer building AI-native products — from 0→1 to scale.',
   location: 'London, UK',
+  website: 'cebrian.io',
+  statement: [
+    'Product Engineer with 20+ years of experience building digital products, combining deep engineering expertise with product thinking, UX and a strong focus on shipping. Currently working with Google DeepMind on AlphaFold Server and Weather Lab, turning complex AI and scientific capabilities into intuitive, production-grade experiences.',
+    'My background spans 0→1 product development, architecture, full-stack engineering, technical leadership and scaling products across web, SaaS, telecommunications and video. I have also founded and scaled technology companies while remaining deeply hands-on.',
+  ],
   about: [
     'I’m a Product Engineer with 20+ years of experience building digital products, combining deep engineering expertise with product thinking, UX, and a strong focus on shipping.',
     'Currently, I work with Google DeepMind, building AI-powered products and experiences including AlphaFold Server and Weather Lab. My work sits at the intersection of engineering, product, design, and AI — turning complex technologies and scientific capabilities into intuitive, scalable products used by people around the world.',
@@ -159,7 +164,7 @@ export const cv: CV = {
     },
     {
       company: 'Deutsche Bank',
-      logo: 'deutschebank.svg',
+      logo: 'deutschebank.png',
       title: 'Frontend Engineer',
       start: 'Oct 2018',
       end: 'Apr 2019',

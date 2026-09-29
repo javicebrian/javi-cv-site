@@ -24,7 +24,8 @@ export default function Hero({ id }: SectionProps) {
         <motion.p variants={item} className="mt-8 max-w-2xl text-xl text-muted md:text-2xl">
           {cv.headline}
         </motion.p>
-        <motion.ul variants={item} className="mt-10 flex flex-wrap gap-4 text-sm">
+        <motion.div variants={item} className="mt-10">
+          <ul className="flex flex-wrap gap-4 text-sm">
           {cv.links.map((l) => (
             <li key={l.href}>
               <a
@@ -37,7 +38,8 @@ export default function Hero({ id }: SectionProps) {
               </a>
             </li>
           ))}
-        </motion.ul>
+          </ul>
+        </motion.div>
       </motion.div>
     </section>
   )

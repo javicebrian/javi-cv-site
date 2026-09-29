@@ -69,6 +69,11 @@ export interface CV {
   tagline: string
   headline: string
   location: string
+  /** Public URL printed in the PDF header. */
+  website: string
+  /** Short personal statement: the PDF's version (must fit its one page). */
+  statement: string[]
+  /** Long version, shown on the web. */
   about: string[]
   links: Link[]
   experience: Role[]
