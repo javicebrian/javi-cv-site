@@ -52,7 +52,7 @@ export interface Achievement {
   title: string
   date: string
   detail: string
-  /** File name under src/assets/achievements/. */
+  /** File name under src/assets/achievements/: an alpha mask, painted in the theme colour. */
   image?: string
 }
 

@@ -11,8 +11,15 @@ export default function Achievements({ id }: SectionProps) {
           const img = achievementUrl(a.image)
           return (
             <li key={a.title}>
-              <Reveal delay={i * 0.08} className="flex h-full gap-5 rounded-xl border border-line bg-surface p-5">
-                {img && <img src={img} alt="" className="size-16 shrink-0 object-contain" />}
+              <Reveal delay={i * 0.08} className="flex h-full items-center gap-5 rounded-xl border border-line bg-surface p-5">
+                {img && (
+                  // The badge is an alpha mask, so it's painted with the theme colour.
+                  <span
+                    aria-hidden
+                    className="size-20 shrink-0 bg-fg/80"
+                    style={{ mask: `url(${img}) center / contain no-repeat`, WebkitMask: `url(${img}) center / contain no-repeat` }}
+                  />
+                )}
                 <div>
                   <h3 className="font-semibold">{a.title}</h3>
                   <p className="mt-1 font-mono text-xs text-muted">{a.date}</p>

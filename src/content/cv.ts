@@ -23,6 +23,7 @@ export const cv: CV = {
   experience: [
     {
       company: 'Google',
+      logo: 'google.png',
       title: 'Lead Product Engineer',
       start: 'Nov 2023',
       location: 'London',
@@ -53,6 +54,7 @@ export const cv: CV = {
     },
     {
       company: 'L’Oréal / La Roche-Posay',
+      logo: 'loreal.png',
       title: 'Lead Engineer',
       start: 'Jul 2023',
       end: 'Oct 2023',
@@ -67,6 +69,7 @@ export const cv: CV = {
     },
     {
       company: 'Virgin Media',
+      logo: 'virginmedia.png',
       title: 'Lead Frontend Engineer',
       start: 'Jul 2022',
       end: 'Jun 2023',
@@ -81,6 +84,7 @@ export const cv: CV = {
     },
     {
       company: 'Candy Digital',
+      logo: 'candy.png',
       title: 'Frontend Engineer',
       start: 'Oct 2021',
       end: 'Jul 2022',
@@ -95,6 +99,7 @@ export const cv: CV = {
     },
     {
       company: 'YLD',
+      logo: 'yld.png',
       title: 'Lead Frontend Engineer',
       start: 'Mar 2021',
       end: 'Sep 2021',
@@ -109,6 +114,7 @@ export const cv: CV = {
     },
     {
       company: 'ABOUT YOU',
+      logo: 'aboutyou.png',
       title: 'Frontend Engineer',
       start: 'Nov 2020',
       end: 'Feb 2021',
@@ -123,6 +129,7 @@ export const cv: CV = {
     },
     {
       company: 'ustwo',
+      logo: 'ustwo.png',
       title: 'Frontend Engineer',
       start: 'Jun 2020',
       end: 'Oct 2020',
@@ -137,6 +144,7 @@ export const cv: CV = {
     },
     {
       company: 'Kingfisher',
+      logo: 'kingfisher.png',
       title: 'Lead Frontend Engineer',
       start: 'May 2019',
       end: 'Jun 2020',
@@ -151,6 +159,7 @@ export const cv: CV = {
     },
     {
       company: 'Deutsche Bank',
+      logo: 'deutschebank.svg',
       title: 'Frontend Engineer',
       start: 'Oct 2018',
       end: 'Apr 2019',
@@ -165,6 +174,7 @@ export const cv: CV = {
     },
     {
       company: 'Extreamr',
+      logo: 'extreamr.png',
       title: 'Co-founder & Technical Head',
       start: 'Sep 2012',
       end: 'Jan 2020',
@@ -280,8 +290,8 @@ export const cv: CV = {
   ],
 
   achievements: [
-    { title: 'Mount Kilimanjaro summit', date: '13 September 2016', detail: '19,341 ft' },
-    { title: 'Vätternrundan', date: '16 June 2017', detail: '300 km in 12h37m' },
+    { title: 'Mount Kilimanjaro summit', date: '13 September 2016', detail: '19,341 ft', image: 'kilimanjaro.png' },
+    { title: 'Vätternrundan', date: '16 June 2017', detail: '300 km in 12h37m', image: 'vatternrundan.png' },
   ],
 
   interests: [
