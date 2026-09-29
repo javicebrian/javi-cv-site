@@ -56,10 +56,12 @@ export interface Achievement {
   image?: string
 }
 
+/** Icons drawn inline in components/InterestIcon.tsx (so they follow the theme). */
+export type InterestIconName = 'parachute' | 'plane' | 'diver' | 'bike' | 'printer3d' | 'wrench'
+
 export interface Interest {
   name: string
-  /** File name under src/assets/interests/. */
-  icon?: string
+  icon: InterestIconName
 }
 
 export interface CV {

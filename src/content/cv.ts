@@ -285,12 +285,12 @@ export const cv: CV = {
   ],
 
   interests: [
-    { name: 'Skydiving instructor' },
-    { name: 'Private pilot' },
-    { name: 'Tech diver' },
-    { name: 'Swimming' },
-    { name: 'Cycling' },
-    { name: 'Photography' },
+    { name: 'Skydiving instructor', icon: 'parachute' },
+    { name: 'Private pilot', icon: 'plane' },
+    { name: 'Tech diver', icon: 'diver' },
+    { name: 'Cycling', icon: 'bike' },
+    { name: '3D printing', icon: 'printer3d' },
+    { name: 'Tinkering', icon: 'wrench' },
   ],
 
   contact: {
