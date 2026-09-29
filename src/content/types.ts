@@ -1,34 +1,36 @@
 // Shape of the CV. All site copy lives in `cv.ts` against these types, so
 // sections stay pure layout and a content edit never touches a component.
+// Modelled on docs/JaviCebrianCV.pdf (structure) + docs/Profile (1).pdf (long text).
 
 export interface Link {
   label: string
   href: string
 }
 
+/** A paragraph, or a titled bullet list (e.g. one per product inside a role). */
+export type Block = string | { title: string; items: string[] }
+
 export interface Role {
   company: string
   title: string
-  /** Free text, e.g. "2021" or "Mar 2021". */
+  /** Free text, e.g. "Nov 2023". */
   start: string
   /** Omit for the current role. */
   end?: string
   location?: string
-  summary?: string
-  highlights: string[]
+  /** One or two lines — the short CV blurb, always visible. */
+  summary: string
+  /** Extended text, shown when the role is expanded. */
+  details?: Block[]
   tags?: string[]
+  /** File name under src/assets/logos/. Falls back to a monogram. */
+  logo?: string
 }
 
-export interface SkillGroup {
+export interface Skill {
   name: string
-  items: string[]
-}
-
-export interface Project {
-  name: string
-  description: string
-  href?: string
-  tags?: string[]
+  /** 1–10, as drawn with dots in the PDF CV. */
+  level: number
 }
 
 export interface Education {
@@ -36,17 +38,45 @@ export interface Education {
   degree: string
   start?: string
   end?: string
+  note?: string
+}
+
+export interface Language {
+  name: string
+  label: string
+  /** 0–1, drives the ring. */
+  proficiency: number
+}
+
+export interface Achievement {
+  title: string
+  date: string
+  detail: string
+  /** File name under src/assets/achievements/. */
+  image?: string
+}
+
+export interface Interest {
+  name: string
+  /** File name under src/assets/interests/. */
+  icon?: string
 }
 
 export interface CV {
   name: string
+  tagline: string
   headline: string
-  location?: string
+  location: string
   about: string[]
   links: Link[]
   experience: Role[]
-  skills: SkillGroup[]
-  projects: Project[]
+  /** Roles only in the extended profile; shown as a compact list. */
+  earlierExperience: Role[]
+  technologies: Skill[]
+  knowledge: string[]
   education: Education[]
-  contact: { email?: string; cta: string }
+  languages: Language[]
+  achievements: Achievement[]
+  interests: Interest[]
+  contact: { email: string; cta: string }
 }

@@ -1,19 +1,27 @@
 import type { ComponentType } from 'react'
 import type { SectionProps } from '../components/Section'
 import About from './About'
+import Achievements from './Achievements'
 import Contact from './Contact'
+import Education from './Education'
 import Experience from './Experience'
 import Hero from './Hero'
-import Projects from './Projects'
+import Interests from './Interests'
+import Languages from './Languages'
 import Skills from './Skills'
 
-// Page order and nav entries in one place. `nav: false` keeps a section out of
-// the menu (the hero is reached via the logo).
+// Page order and nav entries in one place. Blocks follow docs/JaviCebrianCV.pdf;
+// the PDF's two columns become one scroll, with Work experience (its right
+// column) moved up right after the statement. `nav: false` keeps a section out of
+// the menu — the menu only lists the main stops.
 export const sections: { id: string; label: string; nav: boolean; Component: ComponentType<SectionProps> }[] = [
   { id: 'top', label: 'Home', nav: false, Component: Hero },
   { id: 'about', label: 'About', nav: true, Component: About },
   { id: 'experience', label: 'Experience', nav: true, Component: Experience },
   { id: 'skills', label: 'Skills', nav: true, Component: Skills },
-  { id: 'projects', label: 'Projects', nav: true, Component: Projects },
+  { id: 'education', label: 'Education', nav: false, Component: Education },
+  { id: 'languages', label: 'Languages', nav: false, Component: Languages },
+  { id: 'achievements', label: 'Achievements', nav: false, Component: Achievements },
+  { id: 'interests', label: 'Interests', nav: true, Component: Interests },
   { id: 'contact', label: 'Contact', nav: true, Component: Contact },
 ]

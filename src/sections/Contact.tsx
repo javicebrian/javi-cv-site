@@ -9,11 +9,9 @@ export default function Contact({ id }: SectionProps) {
     <Section id={id} title="Contact">
       <Reveal>
         <p className="text-3xl font-semibold md:text-4xl">{cv.contact.cta}</p>
-        {cv.contact.email && (
-          <a href={`mailto:${cv.contact.email}`} className="mt-6 inline-block text-accent hover:underline">
-            {cv.contact.email}
-          </a>
-        )}
+        <a href={`mailto:${cv.contact.email}`} className="mt-6 inline-block text-accent hover:underline">
+          {cv.contact.email}
+        </a>
       </Reveal>
       <footer className="mt-24 font-mono text-xs text-muted">© {YEAR} cebrian.io</footer>
     </Section>

@@ -18,13 +18,21 @@ export default function Hero({ id }: SectionProps) {
         <motion.h1 variants={item} className="text-5xl font-bold tracking-tight md:text-7xl">
           {cv.name}
         </motion.h1>
-        <motion.p variants={item} className="mt-6 max-w-2xl text-xl text-muted md:text-2xl">
+        <motion.p variants={item} className="mt-2 font-mono text-sm text-muted">
+          {cv.tagline}
+        </motion.p>
+        <motion.p variants={item} className="mt-8 max-w-2xl text-xl text-muted md:text-2xl">
           {cv.headline}
         </motion.p>
         <motion.ul variants={item} className="mt-10 flex flex-wrap gap-4 text-sm">
           {cv.links.map((l) => (
             <li key={l.href}>
-              <a href={l.href} target="_blank" rel="noreferrer" className="text-muted underline-offset-4 hover:text-fg hover:underline">
+              <a
+                href={l.href}
+                target={l.href.startsWith('http') ? '_blank' : undefined}
+                rel="noreferrer"
+                className="text-muted underline-offset-4 hover:text-fg hover:underline"
+              >
                 {l.label}
               </a>
             </li>
