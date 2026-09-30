@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Refuse to push anything containing docs/ to GitHub (public). docs/ lives only
+# on the private Gitea remote; GitHub is fed by scripts/publish-github.sh, which
+# strips it. Enabled with: git config core.hooksPath .githooks
+remote_url=$2
+case "$remote_url" in *github.com*) ;; *) exit 0 ;; esac
+
+zero=0000000000000000000000000000000000000000
+while read -r _lref lsha _rref rsha; do
+  [ "$lsha" = "$zero" ] && continue # branch deletion
+  if [ "$rsha" = "$zero" ]; then range=$lsha; else range="$rsha..$lsha"; fi
+  for c in $(git rev-list "$range" 2>/dev/null || git rev-list "$lsha"); do
+    if [ -n "$(git ls-tree -d --name-only "$c" docs)" ]; then
+      echo "✗ pre-push: commit ${c:0:7} contains docs/, which must not go to GitHub." >&2
+      echo "  Publish with scripts/publish-github.sh instead." >&2
+      exit 1
+    fi
+  done
+done
+exit 0

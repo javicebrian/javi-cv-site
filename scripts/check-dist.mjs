@@ -4,11 +4,14 @@
 // index.html, public/ and what src/ imports, so docs/ is out by construction;
 // this check catches accidents (a PDF copied into public/, an import from docs/).
 // The site has no legitimate static PDF: the CV is generated in the browser.
-import { readdirSync, statSync } from 'node:fs'
+import { existsSync, readdirSync, statSync } from 'node:fs'
 import { join, relative } from 'node:path'
 
 const DIST = 'dist'
-const docs = new Set(readdirSync('docs', { recursive: true }).map((p) => String(p).split('/').pop()))
+// docs/ is absent in the GitHub copy of the repo (see scripts/publish-github.sh).
+const docs = new Set(
+  existsSync('docs') ? readdirSync('docs', { recursive: true }).map((p) => String(p).split('/').pop()) : [],
+)
 
 const offenders = []
 const walk = (dir) => {
