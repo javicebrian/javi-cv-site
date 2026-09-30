@@ -2,7 +2,7 @@
 
 Personal website and CV of **Javi Cebrián**, Product Engineer.
 
-Live at **https://javicebrian.github.io/javi-cv-site/**
+Live at **https://cebrian.io**
 
 A single animated page built from one typed content file, plus a downloadable
 PDF CV generated in the browser from that same content, so the site and the PDF
@@ -40,4 +40,4 @@ npm run lint     # oxlint
 ## Deploy
 
 Every push to `main` builds the site and publishes `dist/` to GitHub Pages
-(`.github/workflows/deploy.yml`).
+(`.github/workflows/deploy.yml`), served at the custom domain `cebrian.io`.
