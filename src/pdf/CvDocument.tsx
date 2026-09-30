@@ -1,11 +1,9 @@
-import { Circle, Document, Font, Image, Link, Page, Path, StyleSheet, Svg, Text, View } from '@react-pdf/renderer'
+import { Circle, Document, Image, Link, Page, Path, StyleSheet, Svg, Text, View } from '@react-pdf/renderer'
 import type { ReactNode } from 'react'
-import light from '@fontsource/open-sans/files/open-sans-latin-300-normal.woff?url'
-import lightItalic from '@fontsource/open-sans/files/open-sans-latin-300-italic.woff?url'
-import regular from '@fontsource/open-sans/files/open-sans-latin-400-normal.woff?url'
 import { achievementUrl, logoUrl } from '../content/assets'
 import { interestIcons } from '../content/icons'
 import type { CV } from '../content/types'
+import type { ResolveAsset } from './fonts'
 
 // One-page A4 CV that reproduces docs/JaviCebrianCV.pdf, filled from cv.ts.
 // Every size, offset and colour below was measured on the original (pdftotext
@@ -15,17 +13,6 @@ import type { CV } from '../content/types'
 // comparing word widths. Text boxes are narrower than the columns, as in the
 // original (STATEMENT_W, ROLE_W). Only this file knows the print layout;
 // content comes exclusively from the `cv` prop.
-
-Font.register({
-  family: 'Open Sans',
-  fonts: [
-    { src: light, fontWeight: 300 },
-    { src: lightItalic, fontWeight: 300, fontStyle: 'italic' },
-    { src: regular, fontWeight: 400 },
-  ],
-})
-// The original never breaks words; react-pdf hyphenates by default.
-Font.registerHyphenationCallback((word) => [word])
 
 const C = {
   ink: '#231f20', // headings, role titles
@@ -119,7 +106,8 @@ function Ring({ value }: { value: number }) {
   )
 }
 
-export default function CvDocument({ cv, year }: { cv: CV; year: number }) {
+export default function CvDocument({ cv, year, resolveAsset }: { cv: CV; year: number; resolveAsset: ResolveAsset }) {
+  const asset = (url?: string) => (url ? resolveAsset(url) : undefined)
   const website = `https://${cv.website}`
   const linkedin = cv.links.find((l) => l.label === 'LinkedIn')
 
@@ -217,7 +205,7 @@ export default function CvDocument({ cv, year }: { cv: CV; year: number }) {
 
             <Section title="Achievements" mt={17.2} pad={15}>
               {cv.achievements.map((a) => {
-                const img = achievementUrl(a.image)
+                const img = asset(achievementUrl(a.image))
                 return (
                   <View key={a.title} style={{ flexDirection: 'row', height: 47.2 }}>
                     <View style={{ width: 38, marginLeft: 2, marginRight: 9, alignItems: 'center' }}>
@@ -268,7 +256,7 @@ export default function CvDocument({ cv, year }: { cv: CV; year: number }) {
           <View style={s.col}>
             <Section title="Work experience" pad={12}>
               {cv.experience.map((r) => {
-                const logo = logoUrl(r.logo)
+                const logo = asset(logoUrl(r.logo))
                 return (
                   <View key={r.company + r.start} style={s.role} wrap={false}>
                     {logo ? <Image src={logo} style={s.logo} /> : <View style={s.logo} />}
